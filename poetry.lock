@@ -1195,11 +1195,6 @@ build-wheel = ["setuptools (>=42)", "toml", "wheel"]
 icon-conversion = ["imageio"]
 onefile = ["zstandard (>=0.15)"]
 
-[package.source]
-type = "git"
-url = "https://github.com/Nuitka/Nuitka.git"
-reference = "2.8.4"
-resolved_reference = "fa3c20ac628e9652f58cff9558ae066c7a500ca0"
 
 [[package]]
 name = "ordered-set"
@@ -2360,4 +2355,4 @@ gui = ["pyqtdarktheme-fork", "pyside6"]
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.12,<3.14"
-content-hash = "73a9195e1d46d0176c01c731c1431d4b43085376485622d33e0efd53c42e2fb1"
+content-hash = "42e20ba5076884901dd344855e5bb95a810b2c31edbb3f5fde9c4c8661958f9b"
