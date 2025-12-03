@@ -5,7 +5,7 @@
 [![Commit activity](https://img.shields.io/github/commit-activity/m/exislow/tidal-dl-ng)](https://img.shields.io/github/commit-activity/m/exislow/tidal-dl-ng)
 [![License](https://img.shields.io/github/license/exislow/tidal-dl-ng)](https://img.shields.io/github/license/exislow/tidal-dl-ng)
 
-This tool allows to download songs and videos from TIDAL. Multithreaded and multi-chunked downloads are supported.
+This tool allows you to download songs and videos from TIDAL. Multithreaded and multi-chunked downloads are supported.
 
 ⚠️ **Windows** Defender / **Anti Virus** software / web browser alerts, while you try to download the app binary: This
 is a **false positive**. Please
@@ -39,7 +39,7 @@ $ tidal-dl-ng --help
 ╰──────────────────────────────────────────────────────────────────────────────╯
 ```
 
-If you like this projects and want to support it, feel free to buy me a coffee 🙃✌️
+If you like this project and want to support it, feel free to buy me a coffee 🙃✌️
 
 <a href="https://www.buymeacoffee.com/exislow" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/arial-orange.png" alt="Buy Me A Coffee" style="height: 51px !important;width: 217px !important;" ></a>
 <a href="https://ko-fi.com/exislow" target="_blank" rel="noopener noreferrer"><img src="https://help.ko-fi.com/hc/article_attachments/11833788361117" alt="61e11d430afb112ea33c3aa5_Button-1-p-500"></a>
@@ -83,8 +83,8 @@ tdng
 tidal-dl-ng gui
 ```
 
-If you like to have the GUI version only as a binary, have a look at the
-[release page](https://github.com/exislow/tidal-dl-ng/releases) and download the correct version for your platform.
+If you would like to use the GUI version as a binary, have a look at the
+[release page](https://github.com/exislow/tidal-dl-ng/releases) and download the correct version for your OS.
 
 ## 🧁 Features
 
@@ -121,13 +121,13 @@ tidal_ng_dl/gui.py
 
 ### 📺 GUI Builder
 
-The GUI is build with `PySide6` using the [Qt Designer](https://doc.qt.io/qt-6/qtdesigner-manual.html):
+The GUI is built with `PySide6` using the [Qt Designer](https://doc.qt.io/qt-6/qtdesigner-manual.html):
 
 ```bash
 PYSIDE_DESIGNER_PLUGINS=tidal_dl_ng/ui pyside6-designer
 ```
 
-After all changes are saved you need to translate the Qt Designer `*.ui` file into Python code, for instance:
+After all changes are saved, you need to translate the Qt Designer `*.ui` file into Python code, for instance:
 
 ```
 pyside6-uic tidal_dl_ng/ui/main.ui -o tidal_dl_ng/ui/main.py
@@ -144,9 +144,9 @@ To build the project use this command:
 make install
 # Build macOS GUI
 make gui-macos-dmg
-# OR Build macOS GUI
+# OR Build Windows GUI
 make gui-windows
-# OR Build macOS GUI
+# OR Build Linux GUI
 make gui-linux
 # Check build output
 ls dist/
@@ -206,7 +206,7 @@ sudo apt install libxcb-cursor0
 
 ### A terminal is flashing when I run this app on Windows
 
-Please see this isse [#103](https://github.com/exislow/tidal-dl-ng/issues/103).
+Please see this issue [#103](https://github.com/exislow/tidal-dl-ng/issues/103).
 
 This is due to the Python `ffmpeg` library which is used and only happens on windows if `extract_flac` is activated.
 
