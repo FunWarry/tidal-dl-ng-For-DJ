@@ -1,5 +1,7 @@
 # ![](./tidal_dl_ng/ui/icon32.png) TIDAL Downloader Next Generation! (tidal-dl-ng)
 
+# [FORK] For DJ with management feature
+
 [![Release](https://img.shields.io/github/v/release/exislow/tidal-dl-ng)](https://img.shields.io/github/v/release/exislow/tidal-dl-ng)
 [![Build status](https://img.shields.io/github/actions/workflow/status/exislow/tidal-dl-ng/release-or-test-build.yml)](https://github.com/exislow/tidal-dl-ng/actions/workflows/release-or-test-build.yml)
 [![Commit activity](https://img.shields.io/github/commit-activity/m/exislow/tidal-dl-ng)](https://img.shields.io/github/commit-activity/m/exislow/tidal-dl-ng)
@@ -232,15 +234,5 @@ expose this data via their API.
 - For educational purposes only. I am not liable and responsible for any damage that happens.
 - You should not use this method to distribute or pirate music.
 - It may be illegal to use this app in your country.
-
-## 🫂 Contributors
-
-Thanks to all, who have contributed to this project!
-
-Special thanks goes out to [@orbittwz](https://github.com/orbittwz) for all his support in the issues section.
-
-<a href="https://github.com/exislow/tidal-dl-ng/graphs/contributors"><img src="https://contributors-img.web.app/image?repo=exislow/tidal-dl-ng" /></a>
-
-This project is based on:
 
 - [cookiecutter-poetry](https://fpgmaas.github.io/cookiecutter-poetry/)
