@@ -1,4 +1,4 @@
-# tidal_dl_ng/gui_playlist.py
+# tidal_dl_ng/playlist.py
 
 from typing import TYPE_CHECKING, Any
 

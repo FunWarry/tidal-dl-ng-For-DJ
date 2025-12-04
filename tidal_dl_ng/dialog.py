@@ -206,11 +206,20 @@ class DialogPreferences(QtWidgets.QDialog):
         self.ui.lw_categories.addItem("Paths & Formats")
         self.ui.lw_categories.addItem("Delimiters")
 
-        # Set the first category as selected
-        self.ui.lw_categories.setCurrentRow(0)
-
-        # Connect category selection to page switching
+        # Connect category selection to page switching before setting default
         self.ui.lw_categories.currentRowChanged.connect(self._on_category_changed)
+
+        # Set the first category as selected and force corresponding page
+        self.ui.lw_categories.setCurrentRow(0)
+        self._on_category_changed(0)
+
+        # Add keyboard navigation for convenience
+        shortcut_next = QtGui.QShortcut(QtGui.QKeySequence(QtCore.Qt.Key.Key_Tab), self)
+        shortcut_prev = QtGui.QShortcut(QtGui.QKeySequence(QtCore.Qt.Key.Key_Backtab), self)
+        shortcut_next.activated.connect(lambda: self._navigate_categories(1) if self.ui.lw_categories.count() else None)
+        shortcut_prev.activated.connect(
+            lambda: self._navigate_categories(-1) if self.ui.lw_categories.count() else None
+        )
 
     def _on_category_changed(self, index: int):
         """Handle category change to switch pages."""
@@ -335,3 +344,10 @@ class DialogPreferences(QtWidgets.QDialog):
             setattr(self.settings.data, item, getattr(self.ui, self.prefix_spin_box + item).value())
 
         self.s_settings_save.emit()
+
+    def _navigate_categories(self, direction: int) -> None:
+        """Move category selection forward/backward with wrap-around."""
+        current = self.ui.lw_categories.currentRow()
+        count = self.ui.lw_categories.count()
+        target = (current + direction) % count
+        self.ui.lw_categories.setCurrentRow(target)

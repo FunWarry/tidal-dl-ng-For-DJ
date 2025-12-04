@@ -1,4 +1,4 @@
-# tidal_dl_ng/gui_queue.py
+# tidal_dl_ng/queue.py
 
 import time
 from typing import TYPE_CHECKING

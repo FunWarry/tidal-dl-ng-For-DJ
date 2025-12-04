@@ -1,4 +1,4 @@
-# tidal_dl_ng/gui_search.py
+# tidal_dl_ng/search.py
 
 from typing import TYPE_CHECKING, Any
 
