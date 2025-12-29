@@ -238,4 +238,3 @@ disallow_any_unimported = true
 # shiboken6 is a transitive dependency from PySide6 that we intentionally use directly
 # for type checking and widget deletion (Shiboken.isValid, Shiboken.delete)
 extend_exclude = []
-ignore_transitive = ["shiboken6"]
