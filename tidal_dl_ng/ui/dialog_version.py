@@ -153,7 +153,7 @@ class Ui_DialogVersion:
         self.l_url_github.setText(
             QCoreApplication.translate(
                 "DialogVersion",
-                '<a href="https://github.com/exislow/tidal-dl-ng/">https://github.com/exislow/tidal-dl-ng/</a>',
+                '<a href="https://github.com/FunWarry/tidal-dl-ng-For-DJ/">https://github.com/FunWarry/tidal-dl-ng-For-DJ/</a>',
                 None,
             )
         )

@@ -2,17 +2,17 @@
 
 # [FORK] For DJ with management feature
 
-[![Release](https://img.shields.io/github/v/release/exislow/tidal-dl-ng)](https://img.shields.io/github/v/release/exislow/tidal-dl-ng)
-[![Build status](https://img.shields.io/github/actions/workflow/status/exislow/tidal-dl-ng/release-or-test-build.yml)](https://github.com/exislow/tidal-dl-ng/actions/workflows/release-or-test-build.yml)
-[![Commit activity](https://img.shields.io/github/commit-activity/m/exislow/tidal-dl-ng)](https://img.shields.io/github/commit-activity/m/exislow/tidal-dl-ng)
-[![License](https://img.shields.io/github/license/exislow/tidal-dl-ng)](https://img.shields.io/github/license/exislow/tidal-dl-ng)
+[![Release](https://img.shields.io/github/v/release/FunWarry/tidal-dl-ng-For-DJ)](https://img.shields.io/github/v/release/FunWarry/tidal-dl-ng-For-DJ)
+[![Build status](https://img.shields.io/github/actions/workflow/status/FunWarry/tidal-dl-ng-For-DJ/release-or-test-build.yml)](https://github.com/FunWarry/tidal-dl-ng-For-DJ/actions/workflows/release-or-test-build.yml)
+[![Commit activity](https://img.shields.io/github/commit-activity/m/FunWarry/tidal-dl-ng-For-DJ)](https://img.shields.io/github/commit-activity/m/FunWarry/tidal-dl-ng-For-DJ)
+[![License](https://img.shields.io/github/license/FunWarry/tidal-dl-ng-For-DJ)](https://img.shields.io/github/license/FunWarry/tidal-dl-ng-For-DJ)
 
 This tool allows you to download songs and videos from TIDAL. Multithreaded and multi-chunked downloads are supported.
 
 ⚠️ **Windows** Defender / **Anti Virus** software / web browser alerts, while you try to download the app binary: This
 is a **false positive**. Please
-read [this issue](https://github.com/exislow/tidal-dl-ng/issues/231), [PyInstaller (used by this project) statement](https://github.com/pyinstaller/pyinstaller/blob/develop/.github/ISSUE_TEMPLATE/antivirus.md)
-and [the alternative installation solution](https://github.com/exislow/tidal-dl-ng/?tab=readme-ov-file#-installation--upgrade).
+read [this issue](https://github.com/FunWarry/tidal-dl-ng-For-DJ/issues/231), [PyInstaller (used by this project) statement](https://github.com/pyinstaller/pyinstaller/blob/develop/.github/ISSUE_TEMPLATE/antivirus.md)
+and [the alternative installation solution](https://github.com/FunWarry/tidal-dl-ng-For-DJ/?tab=readme-ov-file#-installation--upgrade).
 
 **A paid TIDAL plan is required!** Audio quality varies up to HiRes Lossless / TIDAL MAX 24-bit, 192 kHz depending on
 the song available. Dolby Atmos is supported. You can use the command line or GUI version of this tool.
@@ -86,7 +86,7 @@ tidal-dl-ng gui
 ```
 
 If you would like to use the GUI version as a binary, have a look at the
-[release page](https://github.com/exislow/tidal-dl-ng/releases) and download the correct version for your OS.
+[release page](https://github.com/FunWarry/tidal-dl-ng-For-DJ/releases) and download the correct version for your OS.
 
 ## 🧁 Features
 
@@ -189,7 +189,7 @@ this [link](https://iboysoft.com/tips/how-to-disable-gatekeeper-macos-sequoia.ht
 
 Short answer: It is a lie. Get rid of your antivirus app.
 
-Long answer: See [here](https://github.com/exislow/tidal-dl-ng/issues/231)
+Long answer: See [here](https://github.com/FunWarry/tidal-dl-ng-For-DJ/issues/231)
 
 ### I get an error when `extract_flac` is enabled
 
@@ -208,7 +208,7 @@ sudo apt install libxcb-cursor0
 
 ### A terminal is flashing when I run this app on Windows
 
-Please see this issue [#103](https://github.com/exislow/tidal-dl-ng/issues/103).
+Please see this issue [#103](https://github.com/FunWarry/tidal-dl-ng-For-DJ/issues/103).
 
 This is due to the Python `ffmpeg` library which is used and only happens on windows if `extract_flac` is activated.
 

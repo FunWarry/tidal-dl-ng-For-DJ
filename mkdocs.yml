@@ -1,10 +1,10 @@
 site_name: tidal-dl-ng
-repo_url: https://github.com/exislow/tidal-dl-ng
+repo_url: https://github.com/FunWarry/tidal-dl-ng-For-DJ
 site_url: https://exislow.github.io/tidal-dl-ng
 site_description: TIDAL Medial Downloader Next Generation!
 site_author: Robert Honz
 edit_uri: edit/main/docs/
-repo_name: exislow/tidal-dl-ng
+repo_name: FunWarry/tidal-dl-ng-For-DJ
 copyright: Maintained by <a href="https://example.com">Robby</a>.
 
 nav:
@@ -43,7 +43,7 @@ theme:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/exislow/tidal-dl-ng
+      link: https://github.com/FunWarry/tidal-dl-ng-For-DJ
     - icon: fontawesome/brands/python
       link: https://pypi.org/project/tidal-dl-ng
 

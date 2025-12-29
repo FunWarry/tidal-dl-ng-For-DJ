@@ -43,7 +43,7 @@ def metadata_project() -> ProjectInformation:
                 # attempt to parse, else use hardcoded fallback
                 repo_url = next(
                     (url.split(", ")[1] for url in urls if url.startswith("Repository")),
-                    "https://github.com/exislow/tidal-dl-ng",
+                    "https://github.com/FunWarry/tidal-dl-ng-For-DJ",
                 )
 
             result = ProjectInformation(version=meta_info["Version"], repository_url=repo_url)

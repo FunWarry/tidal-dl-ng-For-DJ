@@ -9,7 +9,7 @@ You can contribute in many ways:
 
 ## Report Bugs
 
-Report bugs at https://github.com/exislow/tidal-dl-ng/issues
+Report bugs at https://github.com/FunWarry/tidal-dl-ng-For-DJ/issues
 
 If you are reporting a bug, please include:
 
@@ -33,7 +33,7 @@ The TIDAL Downloader project could always use more documentation, whether as par
 
 ## Submit Feedback
 
-The best way to send feedback is to file an issue at https://github.com/exislow/tidal-dl-ng/issues.
+The best way to send feedback is to file an issue at https://github.com/FunWarry/tidal-dl-ng-For-DJ/issues.
 
 If you are proposing a new feature:
 
