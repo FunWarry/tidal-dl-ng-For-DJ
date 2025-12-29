@@ -56,6 +56,8 @@ class TidalSessionMixin:
         if result:
             self._init_dl()
             self.thread_it(self.playlist_manager.tidal_user_lists)
+            # Initialize playlist membership manager
+            self.init_playlist_membership_manager()
 
     def on_logout(self) -> None:
         """Log out from TIDAL and close the application."""

@@ -76,11 +76,15 @@ class TreesResultsMixin:
         )
 
         child_downloaded: QtGui.QStandardItem = QtGui.QStandardItem()
+        child_playlists: QtGui.QStandardItem = QtGui.QStandardItem()
+
         if isinstance(item.obj, Track):
             track_id = str(item.obj.id)
             if self.history_service.is_downloaded(track_id):
                 child_downloaded.setText("✅")
                 child_downloaded.setTextAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+            # Store track_id in playlists column for lookup
+            child_playlists.setData(track_id, QtCore.Qt.ItemDataRole.UserRole)
 
         if isinstance(item.obj, Mix | Playlist | Album | Artist):
             child_dummy: QtGui.QStandardItem = QtGui.QStandardItem()
@@ -97,6 +101,7 @@ class TreesResultsMixin:
             child_quality,
             child_date,
             child_downloaded,
+            child_playlists,
         )
 
     def on_tr_results_add_top_level_item(self, item_child: Sequence[QtGui.QStandardItem]):

@@ -54,10 +54,9 @@ def gui_activate(tidal: Tidal | None = None):
     window = MainWindow(tidal=tidal)
 
     window.show()
-    # Check for updates
-    window.s_update_check.emit(True)
 
-    sys.exit(app.exec())
+    exit_code = app.exec()
+    sys.exit(exit_code)
 
 
 if __name__ == "__main__":

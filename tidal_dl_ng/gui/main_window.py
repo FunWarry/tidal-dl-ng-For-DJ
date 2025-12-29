@@ -19,6 +19,7 @@ from tidal_dl_ng.gui.downloads import DownloadsMixin
 from tidal_dl_ng.gui.history import HistoryMixin
 from tidal_dl_ng.gui.initialization import InitializationMixin
 from tidal_dl_ng.gui.playlist import GuiPlaylistManager
+from tidal_dl_ng.gui.playlist_membership_mixin import PlaylistMembershipMixin
 from tidal_dl_ng.gui.progress import ProgressMixin
 from tidal_dl_ng.gui.queue import GuiQueueManager
 from tidal_dl_ng.gui.search import GuiSearchManager
@@ -52,6 +53,7 @@ class MainWindow(
     TreesResultsMixin,
     ContextMenusMixin,
     HistoryMixin,
+    PlaylistMembershipMixin,
 ):
     """Main application window for TIDAL Downloader Next Generation.
 
@@ -169,7 +171,7 @@ class MainWindow(
 
         self.init_tidal(tidal)
 
-        logger_gui.debug("All setup.")
+        logger_gui.info("All setup.")
 
     def closeEvent(self, event: QtGui.QCloseEvent) -> None:
         """Handle the close event of the main window.
@@ -177,6 +179,12 @@ class MainWindow(
         Args:
             event (QtGui.QCloseEvent): The close event.
         """
+        logger_gui.warning("⚠️ CLOSE EVENT TRIGGERED!")
+        import traceback
+
+        logger_gui.debug("Close event traceback:")
+        for line in traceback.format_stack():
+            logger_gui.debug(line.strip())
         # Save the main window size and position
         self.settings.data.window_x = self.x()
         self.settings.data.window_y = self.y()

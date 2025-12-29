@@ -127,6 +127,7 @@ class InitializationMixin:
             "Quality",
             "Date",
             "Downloaded?",
+            "Playlists",
         ]
         model.setColumnCount(len(labels_column))
         model.setRowCount(0)
