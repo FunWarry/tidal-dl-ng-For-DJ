@@ -508,14 +508,16 @@ class PlaylistContextLoader(QtCore.QRunnable):
             Set of track UUIDs in this playlist
         """
         try:
-            # If a low-level request hook is present, use it to fetch all items
             req = getattr(self.session, "request", None)
             if callable(req):
                 return self._fetch_via_request_hook(playlist_uuid, playlist_name)
 
             return self._fetch_via_tidalapi(playlist_uuid, playlist_name)
 
+        except RequestException:
+            raise
         except Exception as e:
+            logger_gui.debug(f"Unexpected error fetching items for {playlist_uuid}: {e}")
             raise RequestException(f"Failed to fetch items for playlist {playlist_uuid}: {e}") from e  # noqa: TRY003
 
     def request_abort(self) -> None:

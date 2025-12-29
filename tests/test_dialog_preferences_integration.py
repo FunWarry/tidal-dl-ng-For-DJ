@@ -10,15 +10,6 @@ from tidal_dl_ng.dialog import DialogPreferences
 
 
 @pytest.fixture
-def qapp():
-    """Create QApplication instance for tests."""
-    app = QtWidgets.QApplication.instance()
-    if app is None:
-        app = QtWidgets.QApplication([])
-    yield app
-
-
-@pytest.fixture
 def mock_settings():
     """Create a mock Settings object with all required attributes."""
     settings = Mock(spec=Settings)

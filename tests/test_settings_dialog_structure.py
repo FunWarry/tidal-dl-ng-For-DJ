@@ -1,18 +1,8 @@
 """Tests for the settings dialog category structure and organization."""
 
-import pytest
 from PySide6 import QtCore, QtWidgets
 
 from tidal_dl_ng.ui.dialog_settings import Ui_DialogSettings
-
-
-@pytest.fixture
-def qapp():
-    """Create QApplication instance for tests."""
-    app = QtWidgets.QApplication.instance()
-    if app is None:
-        app = QtWidgets.QApplication([])
-    yield app
 
 
 class TestSettingsDialogStructure:

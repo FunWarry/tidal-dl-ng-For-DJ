@@ -1,3 +1,6 @@
+import os
+import tempfile
+from pathlib import Path
 from unittest.mock import Mock
 
 import pytest
@@ -6,14 +9,24 @@ from tidalapi import Album, Track, Video
 from tidalapi.artist import Artist
 
 
-@pytest.fixture
-def qt_app():
-    """Create a QApplication instance for testing Qt widgets."""
-    app = QtWidgets.QApplication.instance()
-    if app is None:
-        app = QtWidgets.QApplication([])
+@pytest.fixture(scope="session")
+def qapp():
+    """Provide a QApplication configured for headless CI (offscreen/minimal)."""
+    # Ensure headless backend for CI runners
+    os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
+    # Qt expects XDG_RUNTIME_DIR to exist with correct permissions
+    runtime_dir = Path(tempfile.mkdtemp(prefix="xdg-runtime-")).resolve()
+    os.environ.setdefault("XDG_RUNTIME_DIR", str(runtime_dir))
+
+    # Lower graphical requirements
+    QtCore.QCoreApplication.setAttribute(QtCore.Qt.AA_DisableHighDpiScaling, True)
+
+    app = QtWidgets.QApplication.instance() or QtWidgets.QApplication([])
     yield app
-    # Note: don't quit the app as it may be shared across tests
+
+
+# Backward compatible alias
+qt_app = qapp
 
 
 @pytest.fixture

@@ -233,3 +233,9 @@ warn_unused_configs = true
 warn_unused_ignores = true
 disallow_untyped_defs = true
 disallow_any_unimported = true
+
+[tool.deptry]
+# shiboken6 is a transitive dependency from PySide6 that we intentionally use directly
+# for type checking and widget deletion (Shiboken.isValid, Shiboken.delete)
+extend_exclude = []
+ignore_transitive = ["shiboken6"]

@@ -9,15 +9,6 @@ from tidal_dl_ng.dialog import DialogPreferences
 from tidal_dl_ng.ui.dialog_settings import Ui_DialogSettings
 
 
-@pytest.fixture
-def qapp():
-    """Create QApplication instance for tests."""
-    app = QtWidgets.QApplication.instance()
-    if app is None:
-        app = QtWidgets.QApplication([])
-    yield app
-
-
 class TestDelimitersPage:
     """Test the Delimiters page specifically."""
 

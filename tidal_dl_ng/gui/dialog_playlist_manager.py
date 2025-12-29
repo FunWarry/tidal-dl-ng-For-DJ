@@ -316,8 +316,7 @@ class PlaylistManagerDialog(QtWidgets.QDialog):
 
         TODO: Integrate with app's notification system (Toast/Snackbar)
         """
-        # Silent - errors are shown via UI notifications
-        pass
+        logger_gui.debug(f"PlaylistManagerDialog notification: {message}")
 
     def closeEvent(self, event: QtGui.QCloseEvent) -> None:
         """Handle dialog close event.
