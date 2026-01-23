@@ -1,0 +1,2149 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="TIDAL Medial Downloader Next Generation!">
+      
+      
+        <meta name="author" content="Robert Honz">
+      
+      
+        <link rel="canonical" href="https://exislow.github.io/tidal-dl-ng/dl_history_%26_duplicate_prev/">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+    
+    
+      
+        <title>Download History Tracking & Duplicate Prevention Feature - tidal-dl-ng</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.84d31ad4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#download-history-tracking-duplicate-prevention-feature" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="tidal-dl-ng" class="md-header__button md-logo" aria-label="tidal-dl-ng" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            tidal-dl-ng
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Download History Tracking &amp; Duplicate Prevention Feature
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="deep-orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/FunWarry/tidal-dl-ng-For-DJ" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    FunWarry/tidal-dl-ng-For-DJ
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="tidal-dl-ng" class="md-nav__button md-logo" aria-label="tidal-dl-ng" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    tidal-dl-ng
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/FunWarry/tidal-dl-ng-For-DJ" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    FunWarry/tidal-dl-ng-For-DJ
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Modules
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table of Contents
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-functionality" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Functionality
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-benefits" class="md-nav__link">
+    <span class="md-ellipsis">
+      User Benefits
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Architecture
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#design-pattern-singleton" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design Pattern: Singleton
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-structure-track-centric" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Structure: Track-Centric
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#thread-safety" class="md-nav__link">
+    <span class="md-ellipsis">
+      Thread Safety
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation Details
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementation Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-history-service-tidal_dl_nghistorypy" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. History Service (tidal_dl_ng/history.py)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. History Service (tidal_dl_ng/history.py)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add_track_to_history" class="md-nav__link">
+    <span class="md-ellipsis">
+      add_track_to_history()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#should_skip_download" class="md-nav__link">
+    <span class="md-ellipsis">
+      should_skip_download()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update_settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      update_settings()
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#atomic-write-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Atomic Write Implementation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#corruption-recovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      Corruption Recovery
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-download-integration-tidal_dl_ngdownloadpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Download Integration (tidal_dl_ng/download.py)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Download Integration (tidal_dl_ng/download.py)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pre-download-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pre-Download Check
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-download-recording" class="md-nav__link">
+    <span class="md-ellipsis">
+      Post-Download Recording
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-gui-integration-tidal_dl_ngguipy" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. GUI Integration (tidal_dl_ng/gui.py)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. GUI Integration (tidal_dl_ng/gui.py)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#menu-action-creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Menu Action Creation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#toggle-handler" class="md-nav__link">
+    <span class="md-ellipsis">
+      Toggle Handler
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-logger-configuration-tidal_dl_ngloggerpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Logger Configuration (tidal_dl_ng/logger.py)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Logger Configuration (tidal_dl_ng/logger.py)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Problem
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Solution
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#result" class="md-nav__link">
+    <span class="md-ellipsis">
+      Result
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      User Interface
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="User Interface">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tools-menu" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tools Menu
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#menu-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Menu Actions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Menu Actions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-view-download-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. View Download History...
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-prevent-duplicate-downloads-checkable" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Prevent Duplicate Downloads (Checkable)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#console-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Console Messages
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Console Messages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#downloaded-item-success" class="md-nav__link">
+    <span class="md-ellipsis">
+      Downloaded Item (Success)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skipped-item-duplicate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Skipped Item (Duplicate)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-finished" class="md-nav__link">
+    <span class="md-ellipsis">
+      List Finished
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Structure
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="File Structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#json-file-location" class="md-nav__link">
+    <span class="md-ellipsis">
+      JSON File Location
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      JSON Schema
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="JSON Schema">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#version-1-current" class="md-nav__link">
+    <span class="md-ellipsis">
+      Version 1 (Current)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#field-descriptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Field Descriptions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#legacy-format-migration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Legacy Format Migration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      API Reference
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="API Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#historyservice" class="md-nav__link">
+    <span class="md-ellipsis">
+      HistoryService
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="HistoryService">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#initialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Initialization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#core-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#track-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Track Operations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#duplicate-prevention" class="md-nav__link">
+    <span class="md-ellipsis">
+      Duplicate Prevention
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#settings-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Settings Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-views" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Views
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#importexport" class="md-nav__link">
+    <span class="md-ellipsis">
+      Import/Export
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#utilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      Utilities
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Testing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#test-coverage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test Coverage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Test Coverage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#test-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test Files
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running Tests
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test Results
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Usage Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-1-basic-download-with-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 1: Basic Download with History
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-2-preventing-duplicates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 2: Preventing Duplicates
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-3-exporting-history-for-backup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 3: Exporting History for Backup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-4-getting-download-statistics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 4: Getting Download Statistics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-5-viewing-history-by-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 5: Viewing History by Source
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-6-gui-toggle-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 6: GUI Toggle Integration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migration-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Migration Guide
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Migration Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#from-no-history-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      From No History System
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#from-legacy-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      From Legacy Format
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance Considerations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Performance Considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lookup-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lookup Performance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#benchmarks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Benchmarks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#concurrency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concurrency
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issue-history-file-corrupted" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue: History file corrupted
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-duplicate-prevention-not-working" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue: Duplicate prevention not working
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-history-lost-after-crash" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue: History lost after crash
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-import-fails" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue: Import fails
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#future-enhancements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Future Enhancements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Future Enhancements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#planned-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Planned Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-stability" class="md-nav__link">
+    <span class="md-ellipsis">
+      API Stability
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contributing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Contributing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Contributing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code-standards" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Standards
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-new-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding New Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#license" class="md-nav__link">
+    <span class="md-ellipsis">
+      License
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changelog" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changelog
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Changelog">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#version-100-2025-11-29" class="md-nav__link">
+    <span class="md-ellipsis">
+      Version 1.0.0 (2025-11-29)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#support" class="md-nav__link">
+    <span class="md-ellipsis">
+      Support
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="download-history-tracking-duplicate-prevention-feature">Download History Tracking &amp; Duplicate Prevention Feature<a class="headerlink" href="#download-history-tracking-duplicate-prevention-feature" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>This feature adds comprehensive download history tracking with duplicate prevention capabilities to tidal-dl-ng. It provides users with visual feedback about previously downloaded tracks and the ability to prevent redundant downloads through a persistent JSON-based history system.</p>
+<h2 id="table-of-contents">Table of Contents<a class="headerlink" href="#table-of-contents" title="Permanent link">&para;</a></h2>
+<ol>
+<li><a href="#features">Features</a></li>
+<li><a href="#architecture">Architecture</a></li>
+<li><a href="#implementation-details">Implementation Details</a></li>
+<li><a href="#user-interface">User Interface</a></li>
+<li><a href="#file-structure">File Structure</a></li>
+<li><a href="#api-reference">API Reference</a></li>
+<li><a href="#testing">Testing</a></li>
+<li><a href="#usage-examples">Usage Examples</a></li>
+</ol>
+<hr />
+<h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h2>
+<h3 id="core-functionality">Core Functionality<a class="headerlink" href="#core-functionality" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Persistent Download History</strong>: Tracks all downloaded tracks in a JSON file that persists across application restarts</li>
+<li><strong>Duplicate Prevention</strong>: Automatically skips tracks that have already been downloaded (when enabled)</li>
+<li><strong>Toggle Control</strong>: Users can enable/disable duplicate prevention via GUI menu</li>
+<li><strong>Source Tracking</strong>: Records the source of each download (playlist, album, mix, manual)</li>
+<li><strong>Thread-Safe Operations</strong>: All history operations are thread-safe for concurrent downloads</li>
+<li><strong>Atomic File Operations</strong>: Prevents corruption through atomic write operations</li>
+<li><strong>Import/Export</strong>: Allows users to backup and restore their download history</li>
+<li><strong>Statistics</strong>: Provides insights into download history (total tracks, by source type, dates)</li>
+<li><strong>Visual Feedback</strong>: Console messages are color-coded (green) for better visibility</li>
+</ul>
+<h3 id="user-benefits">User Benefits<a class="headerlink" href="#user-benefits" title="Permanent link">&para;</a></h3>
+<ul>
+<li>✅ Avoid wasting bandwidth on duplicate downloads</li>
+<li>✅ Keep track of what has been downloaded</li>
+<li>✅ Quickly identify already-downloaded content</li>
+<li>✅ Portable history through import/export</li>
+<li>✅ Source-based organization of download history</li>
+</ul>
+<hr />
+<h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h2>
+<h3 id="design-pattern-singleton">Design Pattern: Singleton<a class="headerlink" href="#design-pattern-singleton" title="Permanent link">&para;</a></h3>
+<p>The <code>HistoryService</code> uses the Singleton pattern to ensure only one instance manages the download history throughout the application lifecycle.</p>
+<pre><code class="language-python">class HistoryService(metaclass=SingletonMeta):
+    &quot;&quot;&quot;Single instance managing all download history operations&quot;&quot;&quot;
+</code></pre>
+<h3 id="data-structure-track-centric">Data Structure: Track-Centric<a class="headerlink" href="#data-structure-track-centric" title="Permanent link">&para;</a></h3>
+<p>The history uses a track-centric approach with track IDs as keys for O(1) lookup performance:</p>
+<pre><code class="language-json">{
+  &quot;settings&quot;: {
+    &quot;preventDuplicates&quot;: true
+  },
+  &quot;tracks&quot;: {
+    &quot;track_id&quot;: {
+      &quot;sourceType&quot;: &quot;playlist&quot;,
+      &quot;sourceId&quot;: &quot;pl-uuid&quot;,
+      &quot;sourceName&quot;: &quot;Playlist Name&quot;,
+      &quot;downloadDate&quot;: &quot;2025-11-29T12:34:56.789Z&quot;
+    }
+  }
+}
+</code></pre>
+<h3 id="thread-safety">Thread Safety<a class="headerlink" href="#thread-safety" title="Permanent link">&para;</a></h3>
+<p>All critical operations are protected by a <code>threading.Lock</code>:</p>
+<pre><code class="language-python">with self._lock:
+    # Critical section - atomic operations
+    self.history_data[track_id] = entry
+    self._save_history_internal()
+</code></pre>
+<hr />
+<h2 id="implementation-details">Implementation Details<a class="headerlink" href="#implementation-details" title="Permanent link">&para;</a></h2>
+<h3 id="1-history-service-tidal_dl_nghistorypy">1. History Service (<code>tidal_dl_ng/history.py</code>)<a class="headerlink" href="#1-history-service-tidal_dl_nghistorypy" title="Permanent link">&para;</a></h3>
+<p><strong>File</strong>: <code>tidal_dl_ng/history.py</code> (new file, ~550 lines)</p>
+<p><strong>Purpose</strong>: Central service for managing download history with JSON persistence.</p>
+<h4 id="key-methods">Key Methods<a class="headerlink" href="#key-methods" title="Permanent link">&para;</a></h4>
+<h5 id="add_track_to_history"><code>add_track_to_history()</code><a class="headerlink" href="#add_track_to_history" title="Permanent link">&para;</a></h5>
+<pre><code class="language-python">def add_track_to_history(
+    self,
+    track_id: str,
+    source_type: str = &quot;manual&quot;,
+    source_id: str | None = None,
+    source_name: str | None = None
+) -&gt; None:
+    &quot;&quot;&quot;Add a track to download history with source metadata.&quot;&quot;&quot;
+</code></pre>
+<h5 id="should_skip_download"><code>should_skip_download()</code><a class="headerlink" href="#should_skip_download" title="Permanent link">&para;</a></h5>
+<pre><code class="language-python">def should_skip_download(self, track_id: str) -&gt; bool:
+    &quot;&quot;&quot;
+    Determine if a track should be skipped based on:
+    1. Track exists in history
+    2. Duplicate prevention is enabled
+
+    Returns True if both conditions are met.
+    &quot;&quot;&quot;
+</code></pre>
+<h5 id="update_settings"><code>update_settings()</code><a class="headerlink" href="#update_settings" title="Permanent link">&para;</a></h5>
+<pre><code class="language-python">def update_settings(self, **kwargs: Any) -&gt; None:
+    &quot;&quot;&quot;Update settings and persist immediately to JSON.&quot;&quot;&quot;
+</code></pre>
+<h4 id="atomic-write-implementation">Atomic Write Implementation<a class="headerlink" href="#atomic-write-implementation" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">def _save_history_internal(self) -&gt; None:
+    &quot;&quot;&quot;
+    Atomic write pattern:
+    1. Write to temporary file
+    2. Atomic rename (os.replace on Windows)
+    3. Cleanup on error
+    &quot;&quot;&quot;
+    with tempfile.NamedTemporaryFile(...) as tmp_file:
+        json.dump(data, tmp_file)
+        tmp_path = tmp_file.name
+
+    os.replace(tmp_path, self.file_path)  # Atomic operation
+</code></pre>
+<h4 id="corruption-recovery">Corruption Recovery<a class="headerlink" href="#corruption-recovery" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">try:
+    data = json.load(f)
+except (json.JSONDecodeError, ValueError):
+    # Create backup of corrupted file
+    backup_path = self.file_path.with_suffix(&quot;.json.bak&quot;)
+    shutil.copy2(self.file_path, backup_path)
+    # Start fresh
+    self.history_data = {}
+</code></pre>
+<hr />
+<h3 id="2-download-integration-tidal_dl_ngdownloadpy">2. Download Integration (<code>tidal_dl_ng/download.py</code>)<a class="headerlink" href="#2-download-integration-tidal_dl_ngdownloadpy" title="Permanent link">&para;</a></h3>
+<p><strong>Modifications</strong>: Integration points in existing download flow</p>
+<h4 id="pre-download-check">Pre-Download Check<a class="headerlink" href="#pre-download-check" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">def item(self, ...) -&gt; tuple[bool, pathlib.Path | str]:
+    # Step 2b: Duplicate prevention
+    if isinstance(media, Track):
+        track_id = str(media.id)
+        if self.history_service.should_skip_download(track_id):
+            self.fn_logger.info(
+                f&quot;Skipped item '{name_builder_item(media)}' (already in history).&quot;
+            )
+            return False, path_media_dst
+</code></pre>
+<h4 id="post-download-recording">Post-Download Recording<a class="headerlink" href="#post-download-recording" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python"># Step 6: Add to history after successful download
+if download_success and isinstance(media, Track):
+    try:
+        self.history_service.add_track_to_history(
+            track_id=str(media.id),
+            source_type=source_type,
+            source_id=source_id,
+            source_name=source_name
+        )
+    except Exception as e:
+        self.fn_logger.warning(f&quot;Failed to add track to history: {e}&quot;)
+</code></pre>
+<p><strong>Note</strong>: Videos are intentionally excluded from history tracking as they use a different workflow.</p>
+<hr />
+<h3 id="3-gui-integration-tidal_dl_ngguipy">3. GUI Integration (<code>tidal_dl_ng/gui.py</code>)<a class="headerlink" href="#3-gui-integration-tidal_dl_ngguipy" title="Permanent link">&para;</a></h3>
+<p><strong>Modifications</strong>: Tools menu integration</p>
+<h4 id="menu-action-creation">Menu Action Creation<a class="headerlink" href="#menu-action-creation" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">def _init_menu_actions(self) -&gt; None:
+    &quot;&quot;&quot;Initialize custom menu actions.&quot;&quot;&quot;
+    # Create or find Tools menu
+    tools_menu = self._get_or_create_tools_menu()
+
+    # Add View History action
+    self.a_view_history = QtGui.QAction(&quot;View Download History...&quot;, self)
+    self.a_view_history.triggered.connect(self.on_view_history)
+    tools_menu.addAction(self.a_view_history)
+
+    # Add separator
+    tools_menu.addSeparator()
+
+    # Add duplicate prevention toggle
+    self.a_toggle_duplicate_prevention = QtGui.QAction(
+        &quot;Prevent Duplicate Downloads&quot;, self
+    )
+    self.a_toggle_duplicate_prevention.setCheckable(True)
+    is_preventing = self.history_service.get_settings().get(&quot;preventDuplicates&quot;, True)
+    self.a_toggle_duplicate_prevention.setChecked(is_preventing)
+    self.a_toggle_duplicate_prevention.triggered.connect(
+        self.on_toggle_duplicate_prevention
+    )
+    tools_menu.addAction(self.a_toggle_duplicate_prevention)
+</code></pre>
+<h4 id="toggle-handler">Toggle Handler<a class="headerlink" href="#toggle-handler" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">def on_toggle_duplicate_prevention(self, enabled: bool) -&gt; None:
+    &quot;&quot;&quot;Toggle duplicate download prevention on or off.
+
+    Args:
+        enabled: Whether duplicate prevention is enabled.
+    &quot;&quot;&quot;
+    self.history_service.update_settings(preventDuplicates=enabled)
+    status_msg = &quot;enabled&quot; if enabled else &quot;disabled&quot;
+    logger_gui.info(f&quot;Duplicate download prevention {status_msg}&quot;)
+    self.s_statusbar_message.emit(
+        StatusbarMessage(
+            message=f&quot;Duplicate prevention {status_msg}.&quot;,
+            timeout=2500
+        )
+    )
+</code></pre>
+<hr />
+<h3 id="4-logger-configuration-tidal_dl_ngloggerpy">4. Logger Configuration (<code>tidal_dl_ng/logger.py</code>)<a class="headerlink" href="#4-logger-configuration-tidal_dl_ngloggerpy" title="Permanent link">&para;</a></h3>
+<p><strong>Modifications</strong>: Color configuration for INFO messages</p>
+<h4 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h4>
+<p>By default, <code>coloredlogs</code> doesn't apply any color to INFO level messages (<code>'info': {}</code>), making them appear gray and less visible.</p>
+<h4 id="solution">Solution<a class="headerlink" href="#solution" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python"># Configure custom level styles to make INFO messages green
+level_styles = coloredlogs.DEFAULT_LEVEL_STYLES.copy()
+level_styles['info'] = {'color': 'green'}
+
+formatter = coloredlogs.ColoredFormatter(
+    fmt=log_fmt,
+    level_styles=level_styles
+)
+</code></pre>
+<h4 id="result">Result<a class="headerlink" href="#result" title="Permanent link">&para;</a></h4>
+<p>All INFO messages (including skip messages) now display in <strong>green</strong> in the application console:</p>
+<pre><code>&gt; Downloaded item 'Track Name'.          # Green
+&gt; Skipped item 'Track Name' (already in history).  # Green
+&gt; Finished list 'Playlist Name'.         # Green
+</code></pre>
+<hr />
+<h2 id="user-interface">User Interface<a class="headerlink" href="#user-interface" title="Permanent link">&para;</a></h2>
+<h3 id="tools-menu">Tools Menu<a class="headerlink" href="#tools-menu" title="Permanent link">&para;</a></h3>
+<p><strong>Location</strong>: Menu Bar → Tools</p>
+<p><strong>Structure</strong>:</p>
+<pre><code>Tools
+├── View Download History...
+├── ─────────────────────
+└── ☑ Prevent Duplicate Downloads
+</code></pre>
+<h3 id="menu-actions">Menu Actions<a class="headerlink" href="#menu-actions" title="Permanent link">&para;</a></h3>
+<h4 id="1-view-download-history">1. View Download History...<a class="headerlink" href="#1-view-download-history" title="Permanent link">&para;</a></h4>
+<p>Opens the Download History dialog showing:</p>
+<ul>
+<li>All downloaded tracks</li>
+<li>Grouped by source (playlists, albums, mixes)</li>
+<li>Download dates and metadata</li>
+<li>Import/Export buttons</li>
+<li>Clear history option</li>
+</ul>
+<h4 id="2-prevent-duplicate-downloads-checkable">2. Prevent Duplicate Downloads (Checkable)<a class="headerlink" href="#2-prevent-duplicate-downloads-checkable" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Checked (Default)</strong>: Tracks in history will be automatically skipped</li>
+<li><strong>Unchecked</strong>: Allows re-downloading tracks even if in history</li>
+<li>State is persisted to JSON file</li>
+<li>Immediate effect on download behavior</li>
+<li>Status message displayed in status bar</li>
+</ul>
+<h3 id="console-messages">Console Messages<a class="headerlink" href="#console-messages" title="Permanent link">&para;</a></h3>
+<h4 id="downloaded-item-success">Downloaded Item (Success)<a class="headerlink" href="#downloaded-item-success" title="Permanent link">&para;</a></h4>
+<pre><code>&gt; Downloaded item 'Artist - Track Title'.
+</code></pre>
+<p><strong>Color</strong>: Green</p>
+<h4 id="skipped-item-duplicate">Skipped Item (Duplicate)<a class="headerlink" href="#skipped-item-duplicate" title="Permanent link">&para;</a></h4>
+<pre><code>&gt; Skipped item 'Artist - Track Title' (already in history).
+</code></pre>
+<p><strong>Color</strong>: Green</p>
+<h4 id="list-finished">List Finished<a class="headerlink" href="#list-finished" title="Permanent link">&para;</a></h4>
+<pre><code>&gt; Finished list 'Playlist Name'.
+</code></pre>
+<p><strong>Color</strong>: Green</p>
+<hr />
+<h2 id="file-structure">File Structure<a class="headerlink" href="#file-structure" title="Permanent link">&para;</a></h2>
+<h3 id="json-file-location">JSON File Location<a class="headerlink" href="#json-file-location" title="Permanent link">&para;</a></h3>
+<p><strong>Path</strong>: <code>{config_base}/downloaded_history.json</code></p>
+<p><strong>Config Base Locations</strong>:</p>
+<ul>
+<li><strong>Windows</strong>: <code>%APPDATA%\tidal-dl-ng\</code></li>
+<li><strong>macOS</strong>: <code>~/Library/Application Support/tidal-dl-ng/</code></li>
+<li><strong>Linux</strong>: <code>~/.config/tidal-dl-ng/</code></li>
+</ul>
+<h3 id="json-schema">JSON Schema<a class="headerlink" href="#json-schema" title="Permanent link">&para;</a></h3>
+<h4 id="version-1-current">Version 1 (Current)<a class="headerlink" href="#version-1-current" title="Permanent link">&para;</a></h4>
+<pre><code class="language-json">{
+  &quot;_schema_version&quot;: 1,
+  &quot;_last_updated&quot;: &quot;2025-11-29T12:34:56.789Z&quot;,
+  &quot;settings&quot;: {
+    &quot;preventDuplicates&quot;: true
+  },
+  &quot;tracks&quot;: {
+    &quot;123456&quot;: {
+      &quot;sourceType&quot;: &quot;playlist&quot;,
+      &quot;sourceId&quot;: &quot;uuid-123-456&quot;,
+      &quot;sourceName&quot;: &quot;My Awesome Playlist&quot;,
+      &quot;downloadDate&quot;: &quot;2025-11-29T12:30:00.000Z&quot;
+    },
+    &quot;789012&quot;: {
+      &quot;sourceType&quot;: &quot;album&quot;,
+      &quot;sourceId&quot;: &quot;uuid-789-012&quot;,
+      &quot;sourceName&quot;: &quot;Amazing Album&quot;,
+      &quot;downloadDate&quot;: &quot;2025-11-29T12:35:00.000Z&quot;
+    }
+  }
+}
+</code></pre>
+<h4 id="field-descriptions">Field Descriptions<a class="headerlink" href="#field-descriptions" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>_schema_version</code></td>
+<td>integer</td>
+<td>Schema version for future migrations</td>
+</tr>
+<tr>
+<td><code>_last_updated</code></td>
+<td>ISO 8601</td>
+<td>Last modification timestamp</td>
+</tr>
+<tr>
+<td><code>settings.preventDuplicates</code></td>
+<td>boolean</td>
+<td>Enable/disable duplicate prevention</td>
+</tr>
+<tr>
+<td><code>tracks</code></td>
+<td>object</td>
+<td>Map of track_id → track metadata</td>
+</tr>
+<tr>
+<td><code>tracks[id].sourceType</code></td>
+<td>string</td>
+<td>Source type: "playlist", "album", "mix", "manual", "track"</td>
+</tr>
+<tr>
+<td><code>tracks[id].sourceId</code></td>
+<td>string|null</td>
+<td>UUID of source, null for manual</td>
+</tr>
+<tr>
+<td><code>tracks[id].sourceName</code></td>
+<td>string|null</td>
+<td>Display name of source</td>
+</tr>
+<tr>
+<td><code>tracks[id].downloadDate</code></td>
+<td>ISO 8601</td>
+<td>When the track was downloaded</td>
+</tr>
+</tbody>
+</table>
+<h3 id="legacy-format-migration">Legacy Format Migration<a class="headerlink" href="#legacy-format-migration" title="Permanent link">&para;</a></h3>
+<p>The service automatically migrates from the legacy format (tracks at root level):</p>
+<pre><code class="language-json">{
+  &quot;_schema_version&quot;: 1,
+  &quot;123456&quot;: {
+    &quot;sourceType&quot;: &quot;playlist&quot;,
+    ...
+  }
+}
+</code></pre>
+<p>to the new format with separate <code>settings</code> and <code>tracks</code> sections.</p>
+<hr />
+<h2 id="api-reference">API Reference<a class="headerlink" href="#api-reference" title="Permanent link">&para;</a></h2>
+<h3 id="historyservice">HistoryService<a class="headerlink" href="#historyservice" title="Permanent link">&para;</a></h3>
+<h4 id="initialization">Initialization<a class="headerlink" href="#initialization" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">from tidal_dl_ng.history import HistoryService
+
+history = HistoryService()  # Singleton - always returns same instance
+</code></pre>
+<h4 id="core-methods">Core Methods<a class="headerlink" href="#core-methods" title="Permanent link">&para;</a></h4>
+<h5 id="track-operations">Track Operations<a class="headerlink" href="#track-operations" title="Permanent link">&para;</a></h5>
+<pre><code class="language-python"># Add track to history
+history.add_track_to_history(
+    track_id=&quot;123456&quot;,
+    source_type=&quot;playlist&quot;,
+    source_id=&quot;pl-uuid&quot;,
+    source_name=&quot;My Playlist&quot;
+)
+
+# Check if track is downloaded
+is_downloaded = history.is_downloaded(&quot;123456&quot;)  # Returns bool
+
+# Get track information
+info = history.get_track_info(&quot;123456&quot;)  # Returns dict or None
+
+# Remove track from history
+removed = history.remove_track_from_history(&quot;123456&quot;)  # Returns bool
+</code></pre>
+<h5 id="duplicate-prevention">Duplicate Prevention<a class="headerlink" href="#duplicate-prevention" title="Permanent link">&para;</a></h5>
+<pre><code class="language-python"># Check if download should be skipped
+should_skip = history.should_skip_download(&quot;123456&quot;)
+# Returns True if:
+# 1. Track exists in history AND
+# 2. preventDuplicates setting is enabled
+
+# Update duplicate prevention setting
+history.update_settings(preventDuplicates=True)  # or False
+</code></pre>
+<h5 id="settings-management">Settings Management<a class="headerlink" href="#settings-management" title="Permanent link">&para;</a></h5>
+<pre><code class="language-python"># Get current settings
+settings = history.get_settings()
+# Returns: {&quot;preventDuplicates&quot;: bool}
+
+# Update settings
+history.update_settings(preventDuplicates=False)
+# Immediately persists to JSON
+</code></pre>
+<h5 id="data-views">Data Views<a class="headerlink" href="#data-views" title="Permanent link">&para;</a></h5>
+<pre><code class="language-python"># Get history grouped by source
+by_source = history.get_history_by_source()
+# Returns: {
+#   &quot;playlist_uuid-123&quot;: [track_info, ...],
+#   &quot;album_uuid-456&quot;: [track_info, ...],
+#   &quot;manual_manual&quot;: [track_info, ...]
+# }
+
+# Get statistics
+stats = history.get_statistics()
+# Returns: {
+#   &quot;total_tracks&quot;: int,
+#   &quot;by_source_type&quot;: {&quot;playlist&quot;: 10, &quot;album&quot;: 5, ...},
+#   &quot;oldest_download&quot;: &quot;ISO 8601&quot;,
+#   &quot;newest_download&quot;: &quot;ISO 8601&quot;
+# }
+</code></pre>
+<h5 id="importexport">Import/Export<a class="headerlink" href="#importexport" title="Permanent link">&para;</a></h5>
+<pre><code class="language-python"># Export history
+success, message = history.export_history(&quot;/path/to/export.json&quot;)
+# Returns: (True, &quot;Successfully exported N tracks&quot;) or (False, &quot;Error message&quot;)
+
+# Import history (merge mode)
+success, message = history.import_history(&quot;/path/to/import.json&quot;, merge=True)
+# merge=True: Adds to existing history
+# merge=False: Replaces existing history
+
+# Clear all history
+history.clear_history()  # Destructive - removes all tracks
+</code></pre>
+<h5 id="utilities">Utilities<a class="headerlink" href="#utilities" title="Permanent link">&para;</a></h5>
+<pre><code class="language-python"># Get history file path
+path = history.get_history_file_path()
+# Returns: &quot;/path/to/downloaded_history.json&quot;
+
+# Save history manually (usually not needed)
+history.save_history()  # Most methods auto-save
+</code></pre>
+<hr />
+<h2 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link">&para;</a></h2>
+<h3 id="test-coverage">Test Coverage<a class="headerlink" href="#test-coverage" title="Permanent link">&para;</a></h3>
+<p><strong>Total</strong>: 91 tests across 4 test files</p>
+<h4 id="test-files">Test Files<a class="headerlink" href="#test-files" title="Permanent link">&para;</a></h4>
+<ol>
+<li>
+<p><strong>test_history_service.py</strong> (38 tests)</p>
+</li>
+<li>
+<p>Service initialization</p>
+</li>
+<li>CRUD operations on tracks</li>
+<li>Duplicate prevention logic</li>
+<li>Settings management</li>
+<li>JSON persistence and corruption recovery</li>
+<li>Import/Export functionality</li>
+<li>Statistics calculation</li>
+<li>
+<p>Thread safety</p>
+</li>
+<li>
+<p><strong>test_download_duplicate_prevention.py</strong> (10 tests)</p>
+</li>
+<li>
+<p>Download skip logic</p>
+</li>
+<li>History integration</li>
+<li>Log message formatting</li>
+<li>Post-download history updates</li>
+<li>
+<p>Settings toggle effects</p>
+</li>
+<li>
+<p><strong>test_gui_duplicate_prevention.py</strong> (22 tests)</p>
+</li>
+<li>
+<p>Menu creation and structure</p>
+</li>
+<li>Action state management</li>
+<li>Handler behavior</li>
+<li>Settings persistence</li>
+<li>
+<p>Status messages</p>
+</li>
+<li>
+<p><strong>test_logger_configuration.py</strong> (20 tests)</p>
+</li>
+<li>Color configuration</li>
+<li>Formatter setup</li>
+<li>Message formatting</li>
+<li>coloredlogs integration</li>
+</ol>
+<h3 id="running-tests">Running Tests<a class="headerlink" href="#running-tests" title="Permanent link">&para;</a></h3>
+<pre><code class="language-bash"># All tests
+pytest tests/ -v
+
+# Specific test file
+pytest tests/test_history_service.py -v
+
+# With coverage
+pytest tests/ --cov=tidal_dl_ng --cov-report=html
+
+# Specific test class
+pytest tests/test_history_service.py::TestDuplicatePrevention -v
+</code></pre>
+<h3 id="test-results">Test Results<a class="headerlink" href="#test-results" title="Permanent link">&para;</a></h3>
+<pre><code>======================== 91 passed in 0.91s ========================
+✅ test_history_service.py: 38 passed
+✅ test_download_duplicate_prevention.py: 10 passed
+✅ test_gui_duplicate_prevention.py: 22 passed
+✅ test_logger_configuration.py: 20 passed
+</code></pre>
+<hr />
+<h2 id="usage-examples">Usage Examples<a class="headerlink" href="#usage-examples" title="Permanent link">&para;</a></h2>
+<h3 id="example-1-basic-download-with-history">Example 1: Basic Download with History<a class="headerlink" href="#example-1-basic-download-with-history" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python">from tidal_dl_ng.download import Download
+from tidal_dl_ng.history import HistoryService
+
+# Initialize download service
+download = Download(...)
+
+# Download a track (automatic history tracking)
+success, path = download.item(
+    file_template=&quot;{artist_name} - {track_title}&quot;,
+    media=track,
+    source_type=&quot;playlist&quot;,
+    source_id=&quot;pl-uuid-123&quot;,
+    source_name=&quot;My Playlist&quot;
+)
+
+# Track is automatically added to history if successful
+
+# Check if track was downloaded
+history = HistoryService()
+if history.is_downloaded(str(track.id)):
+    print(&quot;Track is in history!&quot;)
+</code></pre>
+<h3 id="example-2-preventing-duplicates">Example 2: Preventing Duplicates<a class="headerlink" href="#example-2-preventing-duplicates" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python">from tidal_dl_ng.history import HistoryService
+
+history = HistoryService()
+
+# Enable duplicate prevention (default)
+history.update_settings(preventDuplicates=True)
+
+# Check before downloading
+track_id = &quot;123456&quot;
+if history.should_skip_download(track_id):
+    print(f&quot;Track {track_id} already downloaded - skipping&quot;)
+else:
+    # Proceed with download
+    download.item(...)
+</code></pre>
+<h3 id="example-3-exporting-history-for-backup">Example 3: Exporting History for Backup<a class="headerlink" href="#example-3-exporting-history-for-backup" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python">from tidal_dl_ng.history import HistoryService
+
+history = HistoryService()
+
+# Export current history
+success, message = history.export_history(&quot;/backup/my_history.json&quot;)
+if success:
+    print(f&quot;✅ {message}&quot;)
+else:
+    print(f&quot;❌ {message}&quot;)
+
+# Later, import it back
+success, message = history.import_history(
+    &quot;/backup/my_history.json&quot;,
+    merge=True  # Merge with existing
+)
+</code></pre>
+<h3 id="example-4-getting-download-statistics">Example 4: Getting Download Statistics<a class="headerlink" href="#example-4-getting-download-statistics" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python">from tidal_dl_ng.history import HistoryService
+
+history = HistoryService()
+
+# Get statistics
+stats = history.get_statistics()
+
+print(f&quot;Total tracks downloaded: {stats['total_tracks']}&quot;)
+print(f&quot;By source type:&quot;)
+for source_type, count in stats['by_source_type'].items():
+    print(f&quot;  {source_type}: {count}&quot;)
+print(f&quot;Oldest download: {stats['oldest_download']}&quot;)
+print(f&quot;Newest download: {stats['newest_download']}&quot;)
+</code></pre>
+<h3 id="example-5-viewing-history-by-source">Example 5: Viewing History by Source<a class="headerlink" href="#example-5-viewing-history-by-source" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python">from tidal_dl_ng.history import HistoryService
+
+history = HistoryService()
+
+# Get history grouped by source
+by_source = history.get_history_by_source()
+
+for source_key, tracks in by_source.items():
+    print(f&quot;\n{source_key} ({len(tracks)} tracks):&quot;)
+    for track in tracks:
+        print(f&quot;  - Track {track['track_id']} - {track['source_name']}&quot;)
+        print(f&quot;    Downloaded: {track['download_date']}&quot;)
+</code></pre>
+<h3 id="example-6-gui-toggle-integration">Example 6: GUI Toggle Integration<a class="headerlink" href="#example-6-gui-toggle-integration" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python"># In GUI code
+def on_toggle_duplicate_prevention(self, enabled: bool) -&gt; None:
+    &quot;&quot;&quot;User toggled the menu option.&quot;&quot;&quot;
+    # Update setting
+    self.history_service.update_settings(preventDuplicates=enabled)
+
+    # Show feedback
+    status = &quot;enabled&quot; if enabled else &quot;disabled&quot;
+    self.show_status(f&quot;Duplicate prevention {status}&quot;)
+
+    # Setting is immediately persisted to JSON
+</code></pre>
+<hr />
+<h2 id="migration-guide">Migration Guide<a class="headerlink" href="#migration-guide" title="Permanent link">&para;</a></h2>
+<h3 id="from-no-history-system">From No History System<a class="headerlink" href="#from-no-history-system" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>No action needed</strong>: The system automatically creates an empty history on first run</li>
+<li>Existing downloads won't be in history initially</li>
+<li>New downloads will be tracked going forward</li>
+</ol>
+<h3 id="from-legacy-format">From Legacy Format<a class="headerlink" href="#from-legacy-format" title="Permanent link">&para;</a></h3>
+<p>The system automatically migrates old format files:</p>
+<p><strong>Old format</strong> (tracks at root):</p>
+<pre><code class="language-json">{
+  &quot;_schema_version&quot;: 1,
+  &quot;123456&quot;: { &quot;sourceType&quot;: &quot;...&quot;, ... }
+}
+</code></pre>
+<p><strong>New format</strong> (tracks in section):</p>
+<pre><code class="language-json">{
+  &quot;_schema_version&quot;: 1,
+  &quot;settings&quot;: { &quot;preventDuplicates&quot;: true },
+  &quot;tracks&quot;: {
+    &quot;123456&quot;: { &quot;sourceType&quot;: &quot;...&quot;, ... }
+  }
+}
+</code></pre>
+<p>Migration happens automatically on load - no user intervention required.</p>
+<hr />
+<h2 id="performance-considerations">Performance Considerations<a class="headerlink" href="#performance-considerations" title="Permanent link">&para;</a></h2>
+<h3 id="lookup-performance">Lookup Performance<a class="headerlink" href="#lookup-performance" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Track existence check</strong>: O(1) - uses Python dict</li>
+<li><strong>Should skip check</strong>: O(1) - dict lookup + boolean check</li>
+<li><strong>Memory usage</strong>: ~100 bytes per track entry</li>
+<li><strong>File size</strong>: ~150-200 bytes per track in JSON</li>
+</ul>
+<h3 id="benchmarks">Benchmarks<a class="headerlink" href="#benchmarks" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>Time (avg)</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Add track</td>
+<td>&lt;1ms</td>
+<td>Includes JSON write</td>
+</tr>
+<tr>
+<td>Check if downloaded</td>
+<td>&lt;0.1ms</td>
+<td>Dict lookup only</td>
+</tr>
+<tr>
+<td>Should skip check</td>
+<td>&lt;0.1ms</td>
+<td>Dict lookup + bool</td>
+</tr>
+<tr>
+<td>Load history (1000 tracks)</td>
+<td>~50ms</td>
+<td>On startup only</td>
+</tr>
+<tr>
+<td>Save history (1000 tracks)</td>
+<td>~100ms</td>
+<td>Atomic write</td>
+</tr>
+</tbody>
+</table>
+<h3 id="concurrency">Concurrency<a class="headerlink" href="#concurrency" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Thread-safe</strong>: All operations use <code>threading.Lock</code></li>
+<li><strong>No deadlocks</strong>: Lock held for minimal time</li>
+<li><strong>No race conditions</strong>: Atomic file writes prevent corruption</li>
+</ul>
+<hr />
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<h3 id="issue-history-file-corrupted">Issue: History file corrupted<a class="headerlink" href="#issue-history-file-corrupted" title="Permanent link">&para;</a></h3>
+<p><strong>Solution</strong>: The system automatically:</p>
+<ol>
+<li>Creates a backup <code>.json.bak</code> file</li>
+<li>Starts with empty history</li>
+<li>Logs the corruption for investigation</li>
+</ol>
+<h3 id="issue-duplicate-prevention-not-working">Issue: Duplicate prevention not working<a class="headerlink" href="#issue-duplicate-prevention-not-working" title="Permanent link">&para;</a></h3>
+<p><strong>Check</strong>:</p>
+<ol>
+<li>Is the setting enabled? <code>history.get_settings()["preventDuplicates"]</code></li>
+<li>Is the track actually in history? <code>history.is_downloaded(track_id)</code></li>
+<li>Check logs for skip messages</li>
+</ol>
+<h3 id="issue-history-lost-after-crash">Issue: History lost after crash<a class="headerlink" href="#issue-history-lost-after-crash" title="Permanent link">&para;</a></h3>
+<p><strong>Note</strong>: The system uses atomic writes, so:</p>
+<ul>
+<li>Either the old file is intact, OR</li>
+<li>The new file is complete</li>
+<li>Never partially written</li>
+</ul>
+<h3 id="issue-import-fails">Issue: Import fails<a class="headerlink" href="#issue-import-fails" title="Permanent link">&para;</a></h3>
+<p><strong>Common causes</strong>:</p>
+<ul>
+<li>Invalid JSON syntax → Fix JSON file</li>
+<li>Missing required fields → Add <code>sourceType</code>, <code>downloadDate</code></li>
+<li>Wrong file format → Use export from same version</li>
+</ul>
+<hr />
+<h2 id="future-enhancements">Future Enhancements<a class="headerlink" href="#future-enhancements" title="Permanent link">&para;</a></h2>
+<h3 id="planned-features">Planned Features<a class="headerlink" href="#planned-features" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[ ] Track file paths in history (verify file still exists)</li>
+<li>[ ] Smart re-download detection (file deleted but in history)</li>
+<li>[ ] Quality-based history (allow re-download if better quality available)</li>
+<li>[ ] Batch operations (mark multiple as downloaded/not downloaded)</li>
+<li>[ ] Search and filter in history dialog</li>
+<li>[ ] Export to CSV/Excel for analysis</li>
+<li>[ ] Sync history across devices</li>
+</ul>
+<h3 id="api-stability">API Stability<a class="headerlink" href="#api-stability" title="Permanent link">&para;</a></h3>
+<p>The current API is considered <strong>stable</strong> and follows semantic versioning:</p>
+<ul>
+<li>Patch versions (1.0.x): Bug fixes only</li>
+<li>Minor versions (1.x.0): New features, backward compatible</li>
+<li>Major versions (x.0.0): Breaking changes to API or file format</li>
+</ul>
+<hr />
+<h2 id="contributing">Contributing<a class="headerlink" href="#contributing" title="Permanent link">&para;</a></h2>
+<h3 id="code-standards">Code Standards<a class="headerlink" href="#code-standards" title="Permanent link">&para;</a></h3>
+<p>All code follows the project's AGENTS.md guidelines:</p>
+<ul>
+<li>✅ Type hints for all functions</li>
+<li>✅ Docstrings (Google style)</li>
+<li>✅ PEP 8 compliance (via Black, Ruff)</li>
+<li>✅ Thread safety where needed</li>
+<li>✅ Comprehensive tests</li>
+<li>✅ Error handling</li>
+</ul>
+<h3 id="adding-new-features">Adding New Features<a class="headerlink" href="#adding-new-features" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Update <code>HistoryService</code> class</li>
+<li>Add tests to <code>test_history_service.py</code></li>
+<li>Update JSON schema if needed</li>
+<li>Update this documentation</li>
+<li>Run all tests: <code>pytest tests/</code></li>
+<li>Run quality checks: <code>make check</code></li>
+</ol>
+<hr />
+<h2 id="license">License<a class="headerlink" href="#license" title="Permanent link">&para;</a></h2>
+<p>This feature is part of tidal-dl-ng and follows the same license as the main project.</p>
+<hr />
+<h2 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">&para;</a></h2>
+<h3 id="version-100-2025-11-29">Version 1.0.0 (2025-11-29)<a class="headerlink" href="#version-100-2025-11-29" title="Permanent link">&para;</a></h3>
+<p><strong>Initial Release</strong></p>
+<ul>
+<li>✅ Persistent JSON-based download history</li>
+<li>✅ Duplicate prevention with toggle</li>
+<li>✅ Thread-safe operations</li>
+<li>✅ Atomic file writes</li>
+<li>✅ Corruption recovery</li>
+<li>✅ Import/Export functionality</li>
+<li>✅ Statistics and source views</li>
+<li>✅ GUI integration (Tools menu)</li>
+<li>✅ Green console messages for INFO level</li>
+<li>✅ Comprehensive test suite (91 tests)</li>
+<li>✅ Complete documentation</li>
+</ul>
+<hr />
+<h2 id="support">Support<a class="headerlink" href="#support" title="Permanent link">&para;</a></h2>
+<p>For issues, questions, or feature requests:</p>
+<ol>
+<li>Check this documentation</li>
+<li>Review test files for usage examples</li>
+<li>Open an issue on GitHub with:</li>
+<li>Description of the problem</li>
+<li>Steps to reproduce</li>
+<li>Expected vs actual behavior</li>
+<li>Log output (if applicable)</li>
+</ol>
+<hr />
+<p><strong>Last Updated</strong>: 2025-11-29
+<strong>Version</strong>: 1.0.0
+<strong>Status</strong>: Production Ready ✅</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Maintained by <a href="https://example.com">Robby</a>.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/FunWarry/tidal-dl-ng-For-DJ" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://pypi.org/project/tidal-dl-ng" target="_blank" rel="noopener" title="pypi.org" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6M286.2 444.7a20.4 20.4 0 1 1 0-40.7 20.4 20.4 0 1 1 0 40.7M167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4m-6.6-183.4a20.4 20.4 0 1 1 0 40.8 20.4 20.4 0 1 1 0-40.8"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>
