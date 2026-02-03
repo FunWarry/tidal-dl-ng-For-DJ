@@ -2,6 +2,9 @@
 
 # [FORK] For DJ with management feature
 
+## Unfortunately, as I don't have time to work on the project, I invite you to try to resolve the problem yourself by following the instructions in the various ".md" files of the project and to make merge requests which I will accept or reject depending on the code.
+##Thank you for your understanding. 
+
 [![Release](https://img.shields.io/github/v/release/FunWarry/tidal-dl-ng-For-DJ)](https://img.shields.io/github/v/release/FunWarry/tidal-dl-ng-For-DJ)
 [![Build status](https://img.shields.io/github/actions/workflow/status/FunWarry/tidal-dl-ng-For-DJ/release-or-test-build.yml)](https://github.com/FunWarry/tidal-dl-ng-For-DJ/actions/workflows/release-or-test-build.yml)
 [![Commit activity](https://img.shields.io/github/commit-activity/m/FunWarry/tidal-dl-ng-For-DJ)](https://img.shields.io/github/commit-activity/m/FunWarry/tidal-dl-ng-For-DJ)
